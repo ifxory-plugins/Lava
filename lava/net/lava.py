@@ -13,7 +13,7 @@ class Lava(ServerProtocol):
 
         token = secrets.token_hex(5)
         headers = {"Authorization":"Bearer " + self.factory.token}
-        data = {"key":token, "username":self.display_name}
+        data = {"key":token, "username":self.display_name, "uuid":self.uuid}
         try:
             r = requests.post(self.factory.api, headers=headers, data=data)
             if r.status_code != 200:
